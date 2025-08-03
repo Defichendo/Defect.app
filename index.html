@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дефектоскоп</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>План здания</h1>
+    
+    <!-- Загрузка плана -->
+    <input type="file" id="upload-plan" accept="image/*">
+    <canvas id="plan-canvas"></canvas>
+    
+    <!-- Форма добавления дефекта -->
+    <div id="defect-form" class="hidden">
+      <input type="file" id="upload-photo" accept="image/*">
+      <select id="defect-type">
+        <option value="трещина">Трещина</option>
+        <option value="коррозия">Коррозия</option>
+        <option value="деформация">Деформация</option>
+      </select>
+      <button id="save-defect">Сохранить</button>
+    </div>
+    
+    <!-- Список дефектов -->
+    <div id="defects-list"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
