@@ -1,6 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .hidden {
@@ -11,10 +17,81 @@ body {
   border: 1px solid #ccc;
   margin-top: 20px;
   max-width: 100%;
+  touch-action: none;
 }
 
-#defect-form {
+.defect-marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: red;
+  transform: translate(-12px, -12px);
+  cursor: move;
+  touch-action: none;
+  z-index: 10;
+}
+
+.defect-marker.crack { background: blue; }
+.defect-marker.corrosion { 
+  background: orange;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); 
+  border-radius: 0;
+}
+.defect-marker.water-damage { background: lightblue; }
+.defect-marker.rebar-exposure { 
+  background: gray;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  border-radius: 0;
+}
+.defect-marker.chipping { 
+  background: brown;
+}
+
+#defect-menu {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 100;
+  width: 80%;
+  max-width: 400px;
+}
+
+#defect-menu select, 
+#defect-menu button {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+#defects-table {
   margin-top: 20px;
-  padding: 10px;
-  border: 1px dashed #ccc;
+}
+
+#defects-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#defects-table th, 
+#defects-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#defects-table img {
+  max-width: 100px;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  #defect-menu {
+    width: 90%;
+  }
 }
